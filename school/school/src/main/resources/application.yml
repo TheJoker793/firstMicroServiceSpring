@@ -12,11 +12,14 @@ spring:
     name: school
   config:
     import: optional:configserver:http://localhost:8888
+    #students-url : http://localhost:8090/api/v1/students
+    students-url: "http://localhost:8090/api/v1/students"
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/schools
     username: postgres
     password: 07197697
+
   jpa:
     hibernate:
       ddl-auto: update
