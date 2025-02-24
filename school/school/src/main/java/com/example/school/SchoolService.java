@@ -31,4 +31,14 @@ public class SchoolService {
                 }).orElseThrow(() -> new RuntimeException("school not found"));
 
     }
+
+    public FullSchoolResponse findSchoolWithStudents(int id) {
+        var school=repository.findById(id)
+                .orElse(School.builder()
+                        .name("Not found")
+                        .email("Not found")
+                        .build());
+        var students=null;
+        return null;
+    }
 }

@@ -1,31 +1,15 @@
-package com.example.student;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.*;
+package com.example.school;
 
-@Entity
 public class Student {
-    @Id
-    @GeneratedValue
-    private int id;
     private String firstname;
     private String lastname;
     private String email;
-    private int schoolId;
-    public Student() {}
-    public Student(String firstname, String lastname, String email, int schoolId)   {
+    public Student(String firstname, String lastname, String email) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.schoolId = schoolId;
     }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+    public Student(){}
     public String getFirstname() {
         return firstname;
     }
@@ -44,10 +28,6 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int getSchoolId() {
-        return schoolId;
-    }
-    public void setSchoolId(int schoolId) {
-        this.schoolId = schoolId;
-    }
+
+
 }

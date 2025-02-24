@@ -18,4 +18,27 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return repository.findAll();
     }
+    public Student getStudentById(int id) {
+        return repository.findById(id).orElseThrow(()->new RuntimeException("school not found"));
+    }
+    public void deleteStudentById(int id) {
+        repository.deleteById(id);
+    }
+    public Student updateSchool(int id, Student student)
+    {
+        return repository.findById(id).map(
+                s->{
+                    s.setFirstname(student.getFirstname());
+                    s.setLastname(student.getLastname());
+                    s.setEmail(student.getEmail());
+                    s.setSchoolId(student.getSchoolId());
+                    return repository.save(s);
+                }).orElseThrow(() -> new RuntimeException("school not found"));
+
+    }
+
+
+    public List<Student> findAllStudentsBySchool(int id) {
+        return repository.findAllBySchoolId(id);
+    }
 }
